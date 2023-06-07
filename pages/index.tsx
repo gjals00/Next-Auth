@@ -18,13 +18,16 @@ export default function Login() {
       <h1 className="loginTitle">로그인</h1>
       <div className="buttonContainer">
         <button className="loginButton" onClick={() => signIn('kakao')}>
-          Kakao로 로그인
+          <img src="/kakao_login.png" alt="Kakao 로그인" className="loginImage" />
         </button>
         <button className="loginButton" onClick={() => signIn('naver')}>
-          Naver로 로그인
+          <img src="/naver_login.png" alt="Naver 로그인" className="loginImage" />
         </button>
         <button className="loginButton" onClick={() => signIn('github')}>
-          Github로 로그인
+          <img src="/github_login.png" alt="GitHub 로그인" className="loginImage" />
+        </button>
+        <button className="loginButton" onClick={() => signIn('google')}>
+          <img src="/google_login.png" alt="Google 로그인" className="loginImage" />
         </button>
       </div>
 
@@ -50,8 +53,25 @@ export default function Login() {
         }
 
         .loginButton {
-          width: 250px; /* 원하는 버튼 가로 크기 설정 */
-          height: 80px; /* 원하는 버튼 세로 크기 설정 */
+          width: auto; /* 자동으로 이미지 사이즈에 맞춤 */
+          height: auto; /* 자동으로 이미지 사이즈에 맞춤 */
+          padding: 0; /* 패딩 제거 */
+          border: none; /* 버튼 테두리 제거 */
+          background-color: transparent; /* 배경색 제거 */
+          cursor: pointer; /* 커서 스타일 변경 */
+          /* 다른 스타일 속성들을 추가로 설정할 수 있습니다 */
+        }
+
+        .loginButton:hover {
+          /* 마우스 오버 시 적용할 스타일 */
+          /* 예시: 배경색과 텍스트 색상 변경 */
+          background-color: #f0f0f0;
+          color: #333333;
+        }
+
+        .loginImage {
+          width: 180px; /* 원하는 이미지 가로 크기 설정 */
+          height: 50px; /* 원하는 이미지 세로 크기 설정 */
           /* 다른 스타일 속성들을 추가로 설정할 수 있습니다 */
         }
       `}</style>
