@@ -22,7 +22,7 @@ CREATE TABLE `Session` (
     `id` VARCHAR(191) NOT NULL,
     `sessionToken` VARCHAR(191) NOT NULL,
     `userId` VARCHAR(191) NOT NULL,
-    `expires` DATETIME(3) NOT NULL,
+    `expires` TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     UNIQUE INDEX `Session_sessionToken_key`(`sessionToken`),
     PRIMARY KEY (`id`)
@@ -35,6 +35,7 @@ CREATE TABLE `User` (
     `email` VARCHAR(191) NULL,
     `emailVerified` DATETIME(3) NULL,
     `image` VARCHAR(191) NULL,
+    `lastLogin` TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP(3),
 
     UNIQUE INDEX `User_email_key`(`email`),
     PRIMARY KEY (`id`)
@@ -57,4 +58,3 @@ ALTER TABLE `Account` ADD CONSTRAINT `Account_userId_fkey` FOREIGN KEY (`userId`
 ALTER TABLE `Session` ADD CONSTRAINT `Session_userId_fkey` FOREIGN KEY (`userId`) REFERENCES `User`(`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 ALTER TABLE `Session` ADD COLUMN `accessToken` TEXT NULL AFTER `sessionToken`;
-

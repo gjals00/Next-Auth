@@ -42,6 +42,7 @@ model User {
   image         String?
   accounts      Account[]
   sessions      Session[]
+  nextAuth      nextAuth[]
 }
 
 model VerificationToken {
@@ -58,4 +59,3 @@ model nextAuth {
   userId       String
   user         User     @relation(fields: [userId], references: [id])
 }
-
