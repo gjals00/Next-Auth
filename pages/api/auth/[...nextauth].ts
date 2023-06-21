@@ -28,5 +28,8 @@ export default NextAuth({
       clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
     }),
   ],
+  session: {
+    maxAge : 30 * 60,
+  },
 });
 
